@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:padding="24dp"
+    tools:context="com.example.android.task4.MainActivity">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_ex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Expenses"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/et_ex_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ex"
+                android:gravity="center"
+                android:hint="Description" />
+
+            <EditText
+                android:id="@+id/et_ex_am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_below="@+id/et_ex_des"
+                android:gravity="center"
+                android:hint="Amount" />
+
+            <Button
+                android:id="@+id/btn_add_ex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/et_ex_am"
+                android:layout_below="@+id/et_ex_am"
+                android:text="Add Expenses" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cv1"
+        android:layout_marginTop="36dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/tv_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Income"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/et_in_des"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_in"
+                android:gravity="center"
+                android:hint="Description" />
+
+            <EditText
+                android:id="@+id/et_in_am"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_in_des"
+                android:gravity="center"
+                android:hint="Amount" />
+
+            <Button
+                android:id="@+id/btn_add_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/et_in_am"
+                android:layout_below="@+id/et_in_am"
+                android:text="Add Income" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
