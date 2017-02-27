@@ -10,6 +10,12 @@ public class Income {
     private String nama;
     private String harga;
 
+    public Income(String id, String nama, String harga) {
+        this.id = id;
+        this.nama = nama;
+        this.harga = harga;
+    }
+
     public Income() {
     }
 

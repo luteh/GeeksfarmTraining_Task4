@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class Dashboard extends Fragment {
         total_in = (TextView) view.findViewById(R.id.tv_total_in);
         tv_balance = (TextView) view.findViewById(R.id.tv_balance);
         btn_del = (Button) view.findViewById(R.id.btn_del);
-
+//        Toast.makeText(getActivity(), "asdas", Toast.LENGTH_SHORT).show();
         myDB = new DatabaseHelper(getContext());
         Firebase.setAndroidContext(getActivity());
 
@@ -52,16 +53,26 @@ public class Dashboard extends Fragment {
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.detach(getActivity()).attach(getActivity()).commit();
                 myDB.deleteSQL();
                 firebase.removeValue();
-                Toast.makeText(getActivity(),"Deleted",Toast.LENGTH_SHORT).show();
+//                FragmentTransaction tr = getFragmentManager().beginTransaction();
+//                tr.replace(R.id.flContent, );
+//                tr.commit();
+//                Fragment currentFragment = getFragmentManager().findFragmentByTag("FRAGMENT");
+//                FragmentTransaction fragTransaction = getFragmentManager().beginTransaction();
+//                fragTransaction.detach(currentFragment);
+//                fragTransaction.attach(currentFragment);
+//                fragTransaction.commit();
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
             }
         });
 
         updateTableExpenses();
         updateTableIncome();
         balanceResult();
-//        progressDialog.dismiss();
         return view;
     }
 
@@ -76,10 +87,6 @@ public class Dashboard extends Fragment {
         for (int posisi = 0; posisi < data.size(); posisi++) {
             TableRow tabelBaris = new TableRow(getContext());
             ArrayList<Object> baris = data.get(posisi);
-
-            TextView idTxt = new TextView(getContext());
-            idTxt.setText(baris.get(0).toString());
-            tabelBaris.addView(idTxt);
 
             TextView namaTxt = new TextView(getContext());
             namaTxt.setText(baris.get(1).toString());
@@ -106,10 +113,6 @@ public class Dashboard extends Fragment {
         for (int posisi = 0; posisi < data.size(); posisi++) {
             TableRow tabelBaris = new TableRow(getContext());
             ArrayList<Object> baris = data.get(posisi);
-
-            TextView idTxt = new TextView(getContext());
-            idTxt.setText(baris.get(0).toString());
-            tabelBaris.addView(idTxt);
 
             TextView namaTxt = new TextView(getContext());
             namaTxt.setText(baris.get(1).toString());

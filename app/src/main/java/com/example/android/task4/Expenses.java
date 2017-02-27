@@ -11,6 +11,12 @@ public class Expenses {
     private String harga;
     private String total;
 
+    public Expenses(String id, String nama, String harga) {
+        this.id = id;
+        this.nama = nama;
+        this.harga = harga;
+    }
+
     public String getTotal() {
         return total;
     }
