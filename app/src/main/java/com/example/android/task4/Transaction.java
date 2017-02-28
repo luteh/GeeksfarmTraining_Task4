@@ -18,15 +18,9 @@ import android.widget.Toast;
  */
 
 public class Transaction extends Fragment implements View.OnClickListener {
-    DatabaseHelper transaksiDB;
+    private DatabaseHelper transaksiDB;
     private EditText et_ex_des, et_in_des, et_ex_am, et_in_am;
     private Button btn_add_ex, btn_add_in;
-//    private MainActivity mainActivity;
-
-//    @Override
-//    public void onCreate( Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -27,13 +27,13 @@ import java.util.List;
  */
 
 public class Dashboard extends Fragment {
-    DatabaseHelper myDB;
-    TableLayout tabelExpenses, tabelIncome;
-    TextView total_ex, total_in, tv_balance;
-    int totalex = 0, totalin = 0, balance = 0;
-    ProgressDialog progressDialog;
+    private DatabaseHelper myDB;
+    private TableLayout tabelExpenses, tabelIncome;
+    private TextView total_ex, total_in, tv_balance;
+    private int totalex = 0, totalin = 0, balance = 0;
+    private ProgressDialog progressDialog;
     private Button btn_del;
-    Firebase firebase;
+    private Firebase firebase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class Dashboard extends Fragment {
         total_in = (TextView) view.findViewById(R.id.tv_total_in);
         tv_balance = (TextView) view.findViewById(R.id.tv_balance);
         btn_del = (Button) view.findViewById(R.id.btn_del);
-//        Toast.makeText(getActivity(), "asdas", Toast.LENGTH_SHORT).show();
         myDB = new DatabaseHelper(getContext());
         Firebase.setAndroidContext(getActivity());
 
@@ -53,19 +52,14 @@ public class Dashboard extends Fragment {
         btn_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                ft.detach(getActivity()).attach(getActivity()).commit();
                 myDB.deleteSQL();
                 firebase.removeValue();
-//                FragmentTransaction tr = getFragmentManager().beginTransaction();
-//                tr.replace(R.id.flContent, );
-//                tr.commit();
-//                Fragment currentFragment = getFragmentManager().findFragmentByTag("FRAGMENT");
-//                FragmentTransaction fragTransaction = getFragmentManager().beginTransaction();
-//                fragTransaction.detach(currentFragment);
-//                fragTransaction.attach(currentFragment);
-//                fragTransaction.commit();
+
+                Fragment currentFragment = getActivity().getSupportFragmentManager().findFragmentById(R.id.flContent);
+                FragmentTransaction fragTransaction = getFragmentManager().beginTransaction();
+                fragTransaction.detach(currentFragment);
+                fragTransaction.attach(currentFragment);
+                fragTransaction.commit();
                 Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
             }
         });

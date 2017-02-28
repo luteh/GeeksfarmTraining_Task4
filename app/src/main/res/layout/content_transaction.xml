@@ -38,10 +38,10 @@
                 android:id="@+id/et_ex_am"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:layout_below="@+id/et_ex_des"
                 android:gravity="center"
-                android:hint="Amount" />
+                android:hint="Amount"
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/btn_add_ex"
@@ -86,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/et_in_des"
                 android:gravity="center"
-                android:hint="Amount" />
+                android:hint="Amount"
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/btn_add_in"

@@ -35,13 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
-    //    private Button btn_del;
-    DatabaseHelper myDB;
-    ProgressDialog progressBar;
-    FirebaseDatabase database;
-    DatabaseReference ref, postsRefEx, postsRefIn;
-//    Firebase firebase;
-    private boolean result;
+    private DatabaseHelper myDB;
+    private ProgressDialog progressBar;
+    private FirebaseDatabase database;
+    private DatabaseReference ref, postsRefEx, postsRefIn;
     private int progressBarStatus = 0;
     private Handler progressBarbHandler = new Handler();
     private long fileSize = 0;
@@ -51,22 +48,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        btn_del = (Button) findViewById(R.id.btn_del);
-//        btn_del.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                myDB.deleteSQL();
-//                firebase.removeValue();
-//            }
-//        });
-//        Firebase.setAndroidContext(this);
-//        progressBar = new ProgressDialog(this);
-//        sync();
         database = FirebaseDatabase.getInstance();
         ref = database.getReference();
         postsRefEx = ref.child("Overview Expenses");
         postsRefIn = ref.child("Overview Income");
-//        firebase = new Firebase("https://geeksfarm-task4.firebaseio.com");
 
         myDB = new DatabaseHelper(this);
         // Set a Toolbar to replace the ActionBar.
